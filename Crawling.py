@@ -29,14 +29,13 @@ for i in range(6,31):
     timestamp = driver.find_element(By.XPATH,"/html/body/section/section/div[3]/table/tbody/tr["+str(i)+"]/td[3]").text  
     f.write(f"{title} - {timestamp}\n")
 
-# page_number = input("已经爬取23条数据,还需要爬取几页数据(30条/页): ")
-# for j in range(page_number):
-#    driver.find_element(By.XPATH,"/html/body/section/section/div[4]/div[1]/ul/li[2]/ol/li["+(j+2)+"]/a").click()
-#    with open("/posts/posts"+(j+2)+".txt", "w", encoding="utf-8") as f_loop:
-#       for k in range(30):  
-#         title = driver.find_element(By.XPATH,"/html/body/section/section/div[3]/table/tbody/tr["+(i+1)+"]/td[2]/a").text
-#         timestamp = driver.find_element(By.XPATH,"/html/body/section/section/div[3]/table/tbody/tr["+(i+1)+"]/td[3]").text  
-#         f_loop.write(f"{title} - {timestamp}\n")
+for j in range(page_number):
+   driver.find_element(By.XPATH,"/html/body/section/section/div[4]/div[1]/ul/li[2]/ol/li["+(j+2)+"]/a").click()
+   with open("/posts/posts"+(j+2)+".txt", "w", encoding="utf-8") as f_loop:
+      for k in range(30):  
+        title = driver.find_element(By.XPATH,"/html/body/section/section/div[3]/table/tbody/tr["+(i+1)+"]/td[2]/a").text
+        timestamp = driver.find_element(By.XPATH,"/html/body/section/section/div[3]/table/tbody/tr["+(i+1)+"]/td[3]").text  
+        f_loop.write(f"{title} - {timestamp}\n")
    
 display = input("Do you want to quit?(y/n)")
 if display=="y":
